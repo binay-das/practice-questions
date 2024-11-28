@@ -1,4 +1,4 @@
-package arrays.BinSearch;
+// package arrays.BinSearch;
 
 public class TotalOccurence {
     public static void main(String[] args) {
