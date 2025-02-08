@@ -47,6 +47,17 @@ class LinkedListUtils {
         }
         System.out.println("null");
     }
+
+    public static boolean search(Node head, int target) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.getData() == target) {
+                return true;
+            }
+            temp = temp.getNext();
+        }
+        return false;
+    }
     static Node constructLL(int[] arr) {
         Node head = new Node(arr[0]);
         Node temp1 = head;
@@ -68,5 +79,6 @@ public class LinkedList {
 
         System.out.println(LinkedListUtils.length(head));
         LinkedListUtils.print(head);
+        System.out.println(LinkedListUtils.search(head, 3));
     }
 }
