@@ -58,6 +58,23 @@ class LinkedListUtils {
         }
         return false;
     }
+
+    public static Node reverse(Node head) {
+        if (head == null || head.getNext() == null) {
+            return head;
+        }
+        Node curr = head, prev = null, next;
+
+        while (curr != null) {
+            next = curr.getNext();
+            curr.setNext(prev);
+
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
+    }
     static Node constructLL(int[] arr) {
         Node head = new Node(arr[0]);
         Node temp1 = head;
@@ -80,5 +97,8 @@ public class LinkedList {
         System.out.println(LinkedListUtils.length(head));
         LinkedListUtils.print(head);
         System.out.println(LinkedListUtils.search(head, 3));
+
+        head = LinkedListUtils.reverse(head);
+        LinkedListUtils.print(head);
     }
 }
