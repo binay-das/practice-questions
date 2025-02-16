@@ -74,13 +74,31 @@ class DoublyLinkedListUtils {
 
         return count;
     }
+
+    public static Node reverseDLL (Node head) {
+        if (head == null || head.getNext() == null) {
+            return head;
+        }
+        Node curr = head;
+        Node prev = null;
+        while (curr != null) {
+            prev = curr.getPrev();
+            curr.setPrev(curr.getNext());
+            curr.setNext(prev);
+            head = curr;
+            curr = curr.getPrev();
+        }
+        return head;
+    }
 }
 public class DoublyLinkedList {
     public static void main(String[] args) {
         int[] arr = {234, 2345, 1345, 34165, 43, 476557};
         Node head = createDLLFromArray(arr);
-        System.out.println(head.getData());
 
         printDLL(head);
+
+        Node head2 = reverseDLL(head);
+        printDLL(head2);
     }
 }
